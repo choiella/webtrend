@@ -12,69 +12,49 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #fff0f5;
+            background-color: #ffe6e6;
         }
 
-        #heart {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            pointer-events: none;
-            transition: transform 0.1s ease;
-        }
-    </style>
-</head>
-<body>
-    <img id="heart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Heart_corazón.svg/1024px-Heart_corazón.svg.png" alt="하트 이미지">
-
-    <script>
-       <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>하트가 마우스 포인터를 따라다니는 페이지</title>
-    <style>
-        /* 기본 설정 */
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-
-        /* 하트 스타일 */
         .heart {
             position: absolute;
-            color: red;
-            font-size: 24px;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            transform: rotate(45deg);
+            transition: transform 0.1s ease;
             pointer-events: none;
-            transform: translate(-50%, -50%);
-            animation: float 1s infinite ease-in-out;
         }
 
-        /* 하트 애니메이션 */
-        @keyframes float {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -60%) scale(1.2); }
-            100% { transform: translate(-50%, -50%) scale(1); }
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: -15px;
         }
     </style>
 </head>
 <body>
+    <div class="heart" id="heart"></div>
+
     <script>
-        // 하트를 생성하고 마우스를 따라다니도록 설정
-        document.addEventListener("mousemove", function(e) {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerText = "❤️";
-            document.body.appendChild(하트);
+        const heart = document.getElementById('heart');
 
-            // 하트 위치 설정
-            heart.style.left = `${e.pageX}px`;
-            heart.style.top = `${e.pageY}px`;
-
-            // 하트를 일정 시간 후에 제거
-            setTimeout(() => {
-                heart.remove();
-            }, 1000);
+        document.addEventListener('mousemove', (event) => {
+            heart.style.left = `${event.pageX - heart.offsetWidth / 2}px`;
+            heart.style.top = `${event.pageY - heart.offsetHeight / 2}px`;
         });
     </script>
 </body>
