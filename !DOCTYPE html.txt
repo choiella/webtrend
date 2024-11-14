@@ -3,10 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>만나서 반가워</title>
+    <title>푸바오가 마우스를 따라다녀요</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f8ff;
+        }
+
+        #pooh {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            pointer-events: none;
+            transition: transform 0.1s ease;
+        }
+    </style>
 </head>
 <body>
-    <h1>만나서 반가워!</h1>
-    <p>이 웹 페이지에 오신 것을 환영합니다.</p>
+    <img id="pooh" src="푸바오_이미지_URL" alt="푸바오 이미지">
+
+    <script>
+        const pooh = document.getElementById('pooh');
+
+        document.addEventListener('mousemove', (event) => {
+            pooh.style.left = `${event.pageX - pooh.width / 2}px`;
+            pooh.style.top = `${event.pageY - pooh.height / 2}px`;
+        });
+    </script>
 </body>
 </html>
