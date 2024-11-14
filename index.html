@@ -28,11 +28,21 @@
     <img id="heart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Heart_corazón.svg/1024px-Heart_corazón.svg.png" alt="하트 이미지">
 
     <script>
-        const heart = document.getElementById('heart');
+       // 하트를 생성하고 마우스를 따라다니도록 설정
+        document.addEventListener("mousemove", function(e) {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerText = "❤️";
+            document.body.appendChild(하트);
 
-        document.addEventListener('mousemove', (event) => {
-            heart.style.left = `${event.pageX - heart.width / 2}px`;
-            heart.style.top = `${event.pageY - heart.height / 2}px`;
+            // 하트 위치 설정
+            heart.style.left = `${e.pageX}px`;
+            heart.style.top = `${e.pageY}px`;
+
+            // 하트를 일정 시간 후에 제거
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
         });
     </script>
 </body>
