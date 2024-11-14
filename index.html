@@ -28,7 +28,39 @@
     <img id="heart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Heart_corazón.svg/1024px-Heart_corazón.svg.png" alt="하트 이미지">
 
     <script>
-       // 하트를 생성하고 마우스를 따라다니도록 설정
+       <html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하트가 마우스 포인터를 따라다니는 페이지</title>
+    <style>
+        /* 기본 설정 */
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* 하트 스타일 */
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 24px;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: float 1s infinite ease-in-out;
+        }
+
+        /* 하트 애니메이션 */
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -60%) scale(1.2); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 하트를 생성하고 마우스를 따라다니도록 설정
         document.addEventListener("mousemove", function(e) {
             const heart = document.createElement("div");
             heart.classList.add("heart");
