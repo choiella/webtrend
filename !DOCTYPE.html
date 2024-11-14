@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하트가 마우스를 따라다녀요</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            background-color: #ffe6e6;
+        }
+
+        #heart {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+            transition: transform 0.05s ease;
+        }
+    </style>
+</head>
+<body>
+    <img id="heart" src="pngtree-pink-heart-png-png-image_11502182.png" alt="하트 이미지">
+
+    <script>
+        const heart = document.getElementById('heart');
+
+        document.addEventListener('mousemove', (event) => {
+            heart.style.left = `${event.pageX - heart.width / 2}px`;
+            heart.style.top = `${event.pageY - heart.height / 2}px`;
+        });
+    </script>
+</body>
+</html>
