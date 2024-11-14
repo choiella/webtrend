@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>푸바오가 마우스를 따라다녀요</title>
+    <title>하트가 마우스를 따라다녀요</title>
     <style>
         body {
             margin: 0;
@@ -12,27 +12,27 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f8ff;
+            background-color: #fff0f5;
         }
 
-        #pooh {
+        #heart {
             position: absolute;
-            width: 100px;
-            height: auto;
+            width: 50px;
+            height: 50px;
             pointer-events: none;
             transition: transform 0.1s ease;
         }
     </style>
 </head>
 <body>
-    <img id="pooh" src="푸바오_이미지_URL" alt="푸바오 이미지">
+    <img id="heart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Heart_corazón.svg/1024px-Heart_corazón.svg.png" alt="하트 이미지">
 
     <script>
-        const pooh = document.getElementById('pooh');
+        const heart = document.getElementById('heart');
 
         document.addEventListener('mousemove', (event) => {
-            pooh.style.left = `${event.pageX - pooh.width / 2}px`;
-            pooh.style.top = `${event.pageY - pooh.height / 2}px`;
+            heart.style.left = `${event.pageX - heart.width / 2}px`;
+            heart.style.top = `${event.pageY - heart.height / 2}px`;
         });
     </script>
 </body>
